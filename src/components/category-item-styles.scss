@@ -1,4 +1,4 @@
-.category-container {
+.categories-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -72,3 +72,16 @@
       }
     }
   }
+
+// .category-container{
+//   background-color: red;
+//   padding: 10px;
+//   .category-container{
+//     background-color: dodgerblue;
+//     padding: 20px;
+//     .category-body-container{
+//       background-color: greenyellow;
+//       padding: 30px;
+//     }
+//   }
+// }

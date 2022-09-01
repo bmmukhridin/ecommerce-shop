@@ -31,7 +31,7 @@ function App() {
   ];
 
   return (
-    <div className="category-container">
+    <div className="categories-container">
       {categories.map((category) => {
 
        return <CategoryItem key={category.id} category={category} />;
