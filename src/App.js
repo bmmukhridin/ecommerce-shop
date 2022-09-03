@@ -1,7 +1,8 @@
 import "./components/category-componets/category-item-styles.scss";
 import Directory from "./components/Directory/directory";
-import { Route, Routes, Outlet } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
+import SignIn from "./components/signIn/signIn";
 
 
 
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" element={<Navigation />}>
         <Route index element={<Directory />} />
         <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<SignIn />} />
       </Route>
     </Routes>
   );
