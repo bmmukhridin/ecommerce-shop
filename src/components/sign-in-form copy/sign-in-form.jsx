@@ -33,7 +33,8 @@ function SignInForm() {
       const response = await signInAuthUserWithEmailAndPassword(
         email,
         password
-      );
+      )
+      console.log(response);
     } catch (error) {}
   };
   return (
