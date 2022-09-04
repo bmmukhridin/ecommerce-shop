@@ -61,7 +61,7 @@ function SignInForm() {
         />
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
-          <Button buttonType="google" onClick={signInWithGoogle}>
+          <Button buttonType="google" onClick={signInWithGoogle} type="button">
             Google Sign In
           </Button>
         </div>
