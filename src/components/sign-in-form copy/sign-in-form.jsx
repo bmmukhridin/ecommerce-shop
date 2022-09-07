@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "../../context/user.context";
+import React, { useState } from "react";
+
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -23,10 +23,10 @@ function SignInForm() {
   };
 
   const signInWithGoogle = async function () {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+     await signInWithGooglePopup();
+    
   };
-  const { setCurrentUser } = useContext(UserContext);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -35,7 +35,6 @@ function SignInForm() {
         email,
         password
       );
-      setCurrentUser(user);
     } catch (error) {}
   };
   return (

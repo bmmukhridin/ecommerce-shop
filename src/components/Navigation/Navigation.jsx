@@ -7,7 +7,7 @@ import {signOutUser} from "../utils/firebase/firebase.js"
 
 function Navigation() {
   const { currentUser } = useContext(UserContext);
-  const signOutHandler =()=>{}
+ 
   return (
     <Fragment>
       <div className="navigation">
