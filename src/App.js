@@ -3,20 +3,15 @@ import Directory from "./components/Directory/directory";
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import Authentication from "./components/authentication/authentication";
+import ShopComponent from "./components/shop/shop.component";
 
-function Shop() {
-  return (
-    <div>
-      <h1>this is shop list</h1>
-    </div>
-  );
-}
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<Directory />} />
-        <Route path="shop" element={<Shop />} />
+        <Route path="shop" element={<ShopComponent />} />
         <Route path="auth" element={<Authentication />} />
       </Route>
     </Routes>
