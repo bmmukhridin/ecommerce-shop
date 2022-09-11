@@ -7,9 +7,10 @@ import { signOutUser } from "../utils/firebase/firebase.js";
 import CartIcon from "../cart.icon/cart.icon.component";
 import CartDropDown from "../cart.dropDown/cart.dropdown";
 import { CartContext } from "../../context/cart.context";
+
 function Navigation() {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
       <div className="navigation">
