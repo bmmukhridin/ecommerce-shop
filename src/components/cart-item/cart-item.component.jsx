@@ -10,7 +10,7 @@ function CartItem({ cartItem }) {
         <span className="name">{name}</span>
         <span>{quantity} x ${price}</span>
       </div>
-      <span>{quantity}</span>
+      
     </div>
   );
 }
