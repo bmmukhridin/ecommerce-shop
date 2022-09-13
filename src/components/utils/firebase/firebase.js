@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+////////////////////////////////////////////////// Authintication
 import {
   getAuth,
   signInWithPopup,
@@ -6,9 +7,21 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from "firebase/firestore";
+//////////////////////////////////////////////////////////
 const firebaseConfig = {
   apiKey: "AIzaSyCZkennHD_3-eWpeEZbJCBkdRlLV4_i7GI",
   authDomain: "my-ecommerce-project-72c67.firebaseapp.com",
@@ -17,6 +30,7 @@ const firebaseConfig = {
   messagingSenderId: "752767832042",
   appId: "1:752767832042:web:a5c54a5a9324be27032c93",
 };
+///////////////////////////////////////////////////
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
@@ -32,14 +46,40 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
 export const db = getFirestore();
 
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+  await batch.commit();
+};
+
+export const getCollectionAndDocuments = async () => {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+};
+
 export const createUserDocumentFromAuth = async (
   userAuth,
-  additionalInformation ={}
+  additionalInformation = {}
 ) => {
   if (!userAuth) return;
   const userDocRef = doc(db, "user", userAuth.uid);
-
-  console.log(userDocRef);
 
   const userSnapshot = await getDoc(userDocRef);
   console.log(userSnapshot);
@@ -72,13 +112,11 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-
- export const signOutUser = async() => await signOut(auth)
+export const signOutUser = async () => await signOut(auth);
 // export function signOutUser(){
 //   signOut(auth)
 // }
 
-export function onAuthStateChangedListner(callback){
-  
-  onAuthStateChanged(auth, callback)
+export function onAuthStateChangedListner(callback) {
+  onAuthStateChanged(auth, callback);
 }
