@@ -1,19 +1,20 @@
 import React, {  useContext } from "react";
+import { Fragment } from "react";
 import { CategoriesContext } from "../../context/categories.context";
 import CategoryPrewiev from "../category-preview/category-preview";
-import "./shop.styles.scss";
 
-function ShopComponent() {
+
+function CategoriesPreview() {
   const { categoriesMap } = useContext(CategoriesContext);
 
   return (
-    <div className="shop-container">
+    <Fragment>
       {Object.keys(categoriesMap).map((title) => {
         const products = categoriesMap[title]
         return <CategoryPrewiev key={title} title={title} products={products}/>
       })}
-    </div>
+    </Fragment>
   );
 }
 
-export default ShopComponent;
+export default CategoriesPreview;
