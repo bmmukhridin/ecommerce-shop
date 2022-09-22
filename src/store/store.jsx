@@ -1,7 +1,8 @@
-import React from "react";
-import { compose, createStore, applyMiddleware } from "redux";
+import { compose,createStore, applyMiddleware } from "redux";
+//import { legacy_createStore as createStore} from 'redux'
+
 import { rootReducer } from "./root-reducer";
-import logger from "redux-logger";
+import logger from 'redux-logger';
 
 ///root-reducer
 const middlewares = [logger];
