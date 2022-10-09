@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { googleSignInStart } from "../../store/user/user.action";
+import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 
-import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
-} from "../utils/firebase/firebase";
+//import { signInAuthUserWithEmailAndPassword } from "../utils/firebase/firebase";
 import FormInput from "../Form-input/form-input";
 import "./sign-in.style.scss";
 import Button from "../Button-component/Button";
@@ -26,18 +22,15 @@ function SignInForm() {
   };
 
   const signInWithGoogle = async function () {
-     //await signInWithGooglePopup();
-     dispatch(googleSignInStart())
+    //await signInWithGooglePopup();
+    dispatch(googleSignInStart());
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+     dispatch(emailSignInStart(email, password))
     } catch (error) {}
   };
   return (
