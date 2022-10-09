@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-  onAuthStateChangedListner,
-  createUserDocumentFromAuth,
-  getCurrentUser,
-} from "./components/utils/firebase/firebase";
+// import {
+//   onAuthStateChangedListner,
+//   createUserDocumentFromAuth,
+//   getCurrentUser,
+// } from "./components/utils/firebase/firebase";
+
+
 ///////////////////////
 import "./components/category-componets/category-item-styles.scss";
 import Directory from "./components/Directory/directory";
@@ -13,12 +15,13 @@ import Navigation from "./components/Navigation/Navigation";
 import Authentication from "./components/authentication/authentication";
 import ShopComponent from "./components/shop/shop.component";
 import Checkout from "./components/checkout/checkout.component";
-import { setCurrentUser } from "./store/user/user.action";
+//import { setCurrentUser } from "./store/user/user.action";
+import { checkUserSession } from "./store/user/user.action";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    getCurrentUser();
+    dispatch(checkUserSession());
   }, []);
 
   return (
