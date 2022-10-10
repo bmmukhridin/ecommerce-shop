@@ -15,12 +15,12 @@ import {
   creatAuthUserWithEmailAndPassword,
 } from "../../components/utils/firebase/firebase";
 
-export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
+export function* getSnapshotFromUserAuth(userAuth, additionalDetailes) {
   try {
     const userSnapShot = yield call(
       createUserDocumentFromAuth,
       userAuth,
-      additionalDetails
+      additionalDetailes
     );
   } catch (error) {
     yield put(signInFailed(error));

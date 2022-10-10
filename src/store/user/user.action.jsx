@@ -41,4 +41,4 @@ export const signUpSuccess = ( user, additionalDetailes ) =>
   createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, { user, additionalDetailes });
 
 export const signUpFailed = (error) =>
-  createAction(USER_ACTION_TYPES.SIGN_IN_FAILED);
+  createAction(USER_ACTION_TYPES.SIGN_UP_FAILED);
