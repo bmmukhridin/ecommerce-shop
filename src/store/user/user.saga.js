@@ -22,6 +22,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalDetailes) {
       userAuth,
       additionalDetailes
     );
+    yield put(signInSuccess(userSnapShot));
   } catch (error) {
     yield put(signInFailed(error));
   }
@@ -99,7 +100,7 @@ export function* userSaga() {
     call(onChackUserSession),
     call(onGoogleSignInStart),
     call(onEmailSignInStart),
-    call(signUpStart),
-    call(signUpSuccess),
+    call(onSignUpStart),
+    call(onSignUpSuccess),
   ]);
 }
