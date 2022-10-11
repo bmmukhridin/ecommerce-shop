@@ -17,7 +17,7 @@ const isCartOpen = useSelector(selectCartOpen)
   const toggleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen));
   return (
     <div className="cart-icon-container" onClick={toggleIsCartOpen}>
-      <ShoppingIcon className="shopping" />
+      <ShoppingIcon className="shopping" height='20rem'/>
       <span className="item-count">{cartCount}</span>
     </div>
   );
