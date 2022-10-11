@@ -8,6 +8,7 @@ import {
 // import { CartContext } from "../../context/cart.context(draft)";
 import "./checkout.styles.scss";
 import CheckoutItem from "../checkout-item/checkout-item.component";
+import PaymantForm from "../paymant-form/payment-form.component";
 
 function Checkout() {
   // const { cartItems, cartTotal } = useContext(CartContext);
@@ -38,6 +39,7 @@ function Checkout() {
         return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
       })}
       <span className="total">Total: ${cartTotal}</span>
+      <PaymantForm />
     </div>
   );
 }
