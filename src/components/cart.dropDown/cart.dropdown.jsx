@@ -8,7 +8,7 @@ import CartItem from "../cart-item/cart-item.component";
 // import { CartContext } from "../../context/cart.context(draft)";
 import { selectCartItems } from "../../store/cart/cart.selector";
 
-function CartDropDown() {
+function  CartDropDown() {
   const navigate = useNavigate()
   // const { cartItems } = useContext(CartContext);
    const cartItems  = useSelector(selectCartItems);
