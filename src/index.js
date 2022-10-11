@@ -6,26 +6,30 @@ import { PersistGate } from "redux-persist/integration/react";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./components/utils/firebase/stripe/stripe.utils";
 
 // import { UserProvider } from "./context/user.context";
 //import { CategoriesProvider } from "./context/categories.context";
 //import { CartProvider } from "./context/cart.context";
 
-import { store,persistor } from "./store/store";
+import { store, persistor } from "./store/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <PersistGate loading={null}persistor={persistor}>
-      <BrowserRouter>
-        {/* <UserProvider> */}
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          {/* <UserProvider> */}
           {/* <CategoriesProvider> */}
-            {/* <CartProvider> */}
-              <App />
-            {/* </CartProvider> */}
+          {/* <CartProvider> */}
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
+          {/* </CartProvider> */}
           {/* </CategoriesProvider> */}
-        {/* </UserProvider> */}
-      </BrowserRouter>
+          {/* </UserProvider> */}
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>
