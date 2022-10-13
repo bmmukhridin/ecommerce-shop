@@ -2,7 +2,9 @@ const { async } = require("@firebase/util");
 
 require("dotenv").config();
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+//const key2= "sk_test_51LreMxLVSkL412XwIjONdaVJ5qzBxUfp1WBQm6paoK0ggPIdfvjqiLmlBrYkbStZlemVdtrhhOaAHnJ82H66dOqh00NAMMwpdi"
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 exports.handler = async (event) => {
   try {
@@ -20,7 +22,7 @@ exports.handler = async (event) => {
     console.log({ error });
 
     return {
-      status: 400,
+      statusCode: 400,
       body: JSON.stringify({ error }),
     };
   }
