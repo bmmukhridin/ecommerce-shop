@@ -10,5 +10,5 @@ export const PaymantFormContainer = styled.div`
 
 export const FormContainer = styled.form`
   height: 100px;
-  min-height: 500px;
+  min-width: 500px;
 `;
