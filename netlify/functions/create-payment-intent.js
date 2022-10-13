@@ -9,6 +9,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 exports.handler = async (event) => {
   try {
     const { amount } = JSON.parse(event.body);
+    
     const paymantIntent = await stripe.paymantIntent.create({
       amount,
       currency: "usd",
