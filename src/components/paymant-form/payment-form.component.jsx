@@ -16,12 +16,12 @@ export default function PaymantForm() {
   };
 
   return (
-    <FormContainer>
-      <PaymantFormContainer>
+    <PaymantFormContainer>
+      <FormContainer>
         <h2>Credit Card Paymanet: </h2>
         <CardElement />
         <Button buttonType={BUTTON_TYPE_CLASSES.inverted}> Pay Now </Button>
-      </PaymantFormContainer>
-    </FormContainer>
+      </FormContainer>
+    </PaymantFormContainer>
   );
 }
